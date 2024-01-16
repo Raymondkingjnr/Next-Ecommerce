@@ -43,5 +43,10 @@ export default {
       title: 'category',
       type: 'string',
     },
+    {
+      name: 'quantity',
+      title: 'Quantity',
+      type: 'number',
+    },
   ],
 }

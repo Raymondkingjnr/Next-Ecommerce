@@ -1,14 +1,11 @@
 import Banner from "@/components/Banner";
-import NewProduct from "@/components/NewProduct";
-import TopProduct from "@/components/TopProduct";
-import Image from "next/image";
+import Featured from "@/components/Featured";
 
 export default function Home() {
   return (
     <main>
       <Banner />
-      <NewProduct />
-      <TopProduct />
+      <Featured />
     </main>
   );
 }

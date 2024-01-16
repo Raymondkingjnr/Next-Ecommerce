@@ -1,12 +1,17 @@
 export default {
   name: 'navs',
-  title: 'Navs',
+  title: 'navs',
   type: 'document',
 
   fields: [
     {
       name: 'text',
       title: 'text',
+      type: 'string',
+    },
+    {
+      name: 'href',
+      title: 'href',
       type: 'string',
     },
   ],
