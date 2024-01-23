@@ -1,19 +1,12 @@
-import Card from "@/components/Card";
-import Filter from "@/components/Filter";
+import ProductList from "@/components/ProductList";
 import { siteConfig } from "@/config/site";
 import { client } from "@/lib/client";
-
-async function getProduct() {
-  const productQuery =
-    '*[_type == "product"] | order(_createdAt asc) { _id, price,category, name,"slug":slug.current, "image":image[0].asset->url}';
-
-  const productData = await client.fetch(productQuery);
-
-  return productData;
-}
+import Filter from "@/components/Filter";
 
 export default async function page() {
-  const data = await getProduct();
+  const productQuery = `*[_type == "product"] | { _id, price,category, name,"slug":slug.current, "image":image[0].asset->url}`;
+
+  const data = await client.fetch(productQuery);
 
   return (
     <section>
@@ -32,15 +25,9 @@ export default async function page() {
           </h1>
         </main>
         <div>
-          <div>
-            <Filter />
-          </div>
-          <main className=" grid md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-5 place-items-center place-content-center pt-10">
-            {data.map((item, index) => (
-              <Card data={item} key={index} />
-            ))}
-          </main>
+          <Filter />
         </div>
+        <ProductList data={data} />
       </article>
     </section>
   );

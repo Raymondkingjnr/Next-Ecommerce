@@ -6,7 +6,6 @@ import {schemaTypes} from './schemas'
 export default defineConfig({
   name: 'default',
   title: 'sanity ecommerce',
-
   projectId: 'fcd2vvd5',
   dataset: 'production',
 
